@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, TextInput } from 'react-native';
 
 const SearchBar = ({ setMovies }) => {
     const [input, setInput] = useState("");
@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         borderBottomColor: "black",
         borderBottomWidth: 3,
-        width: '80%'
+        width: '80%',
+        marginBottom: 10
     }
 });
 
