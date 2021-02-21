@@ -4,6 +4,8 @@ import Header from './components/Header';
 import MovieListItem from './components/MovieListItem';
 import SearchBar from './components/SearchBar';
 
+
+
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [movieItems, setMovieItems] = useState([]);
@@ -11,27 +13,13 @@ const App = () => {
   useEffect(() => {
 
   }, [])
-  function Item ({id}) {
-    return (
-      <TouchableOpacity 
-        onPress={() =>{
-          console.log(id, 'was pressed');
-      }}>
-        <View style={styles.item}>
-          <Text>{id}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-    }
 
 
   return (
     <View style={styles.container}>
       <Header />
       <SearchBar setMovies={setMovies} />
-      <FlatList onPress={() => navigate(DetailsScreen)
-
-      }
+      <FlatList 
         data={movies}
         renderItem={({ item }) => <MovieListItem movie={item} />}
       />

@@ -1,15 +1,20 @@
 import React from 'react';
-import { ImageBackground, Text, StyleSheet } from 'react-native';
+import { ImageBackground, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const MovieListItem = ({ movie }) => {
     return (
-        <ImageBackground key={movie.id} source={{ uri: movie.i.imageUrl }} style={styles.container}>
-            <Text
-                style={styles.text}
-            >
-                {movie.l}
-            </Text>
-        </ImageBackground>
+        <TouchableOpacity key={movie.id}
+        onPress={() =>{
+          console.log(movie.id, 'was pressed');
+        }}>
+            <ImageBackground  source={{ uri: movie.i.imageUrl }} style={styles.container}>
+                <Text
+                    style={styles.text}
+                >
+                    {movie.l}
+                </Text>
+            </ImageBackground>
+        </TouchableOpacity>
     )
 }
 
