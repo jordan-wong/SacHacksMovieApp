@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import getMovie from './getMovie';
+import searchMovie from './searchMovie';
 
 const App = () => {
-  const [movie, setMovie] = useState("");
-
+  const [movies, setMovies] = useState("");
 
   useEffect(() => {
-    getMovie()
-      .then(movie => setMovie(movie))
+    searchMovie("game%20of%20thro")
+      .then(movies => setMovies(movies))
 
-  }, [setMovie])
+  }, [setMovies])
+
+  // console.log(movies);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{movie.Title}</Text>
+      <Text style={styles.text}>Title Here</Text>
     </View>
   );
 };
@@ -24,11 +25,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     //paddingTop: 60,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   text: {
     color: 'darkslateblue',
-    fontSize: 50,
+    fontSize: 50
   }
 });
 
