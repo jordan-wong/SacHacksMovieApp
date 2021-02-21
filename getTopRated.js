@@ -1,6 +1,6 @@
-const getNews = async (searchInput) => {
+const getTopRated = async () => {
     try {//https://imdb8.p.rapidapi.com/auto-complete?q=${searchInput}
-        fetch("https://imdb8.p.rapidapi.com/title/get-news?tconst=tt0944947&limit=1", {
+        fetch("https://imdb8.p.rapidapi.com/title/get-top-rated-movies", {
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": "7eb871839cmshdeae0929738b5e3p1d14fejsn61cd09bd04c0",
@@ -31,4 +31,4 @@ const getNews = async (searchInput) => {
     }
 }
 
-export default getNews;
+export default getTopRated;
