@@ -1,13 +1,14 @@
 import React from 'react';
 import { ImageBackground, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const MovieListItem = ({ movie }) => {
+const MovieListItem = ({ movie, setIsMovieSelected }) => {
     return (
         <TouchableOpacity key={movie.id}
-        onPress={() =>{
-          console.log(movie.id, 'was pressed');
-        }}>
-            <ImageBackground  source={{ uri: movie.i.imageUrl }} style={styles.container}>
+            onPress={() => {
+                console.log(movie.id, 'was pressed');
+                setIsMovieSelected(true);
+            }}>
+            <ImageBackground source={{ uri: movie.i.imageUrl }} style={styles.container}>
                 <Text
                     style={styles.text}
                 >

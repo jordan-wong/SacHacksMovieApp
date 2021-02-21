@@ -4,11 +4,9 @@ import Header from './components/Header';
 import MovieListItem from './components/MovieListItem';
 import SearchBar from './components/SearchBar';
 
-
-
 const App = () => {
   const [movies, setMovies] = useState([]);
-  const [movieItems, setMovieItems] = useState([]);
+  const [isMovieSelected, setIsMovieSelected] = useState(false);
 
   useEffect(() => {
 
@@ -19,10 +17,16 @@ const App = () => {
     <View style={styles.container}>
       <Header />
       <SearchBar setMovies={setMovies} />
-      <FlatList 
-        data={movies}
-        renderItem={({ item }) => <MovieListItem movie={item} />}
-      />
+      {!isMovieSelected &&
+        <FlatList
+          data={movies}
+          renderItem={({ item }) => <MovieListItem movie={item} setIsMovieSelected={setIsMovieSelected} />}
+        />
+      }
+      {isMovieSelected &&
+        <FlatList
+        />
+      }
     </View>
   );
 };
