@@ -1,19 +1,17 @@
 import React from 'react';
-import { ImageBackground, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import getNews from '../getNews';
+import { ImageBackground, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 
-const MovieListItem = ({ movie, setIsMovieSelected, setNews }) => {
+const NewsListItem = ({ newsData }) => {
     return (
-        <TouchableOpacity key={movie.id}
+        <TouchableOpacity
             onPress={() => {
-                getNews(movie.id).then(newsData => setNews(newsData.items))
-                setIsMovieSelected(true);
+                Linking.openURL(newsData.link);
             }}>
-            <ImageBackground source={{ uri: movie.i.imageUrl }} style={styles.container}>
+            <ImageBackground source={{ uri: newsData.image.url }} style={styles.container}>
                 <Text
-                    style={styles.text}
+                    style={styles.text1}
                 >
-                    {movie.l}
+                    {newsData.head}
                 </Text>
             </ImageBackground>
         </TouchableOpacity>
@@ -31,12 +29,17 @@ const styles = StyleSheet.create({
         minHeight: 200,
         paddingTop: 20
     },
-    text: {
-        fontSize: 35,
+    text1: {
+        fontSize: 20,
         textAlign: 'center',
         color: 'white',
         backgroundColor: 'black'
+    },
+    text2: {
+        fontSize: 15,
+        textAlign: 'center',
+        color: 'black'
     }
 });
 
-export default MovieListItem;
+export default NewsListItem;
