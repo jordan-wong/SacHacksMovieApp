@@ -34,10 +34,11 @@ const styles = StyleSheet.create({
 });
 
 const search = async (searchInput) => {
-    return fetch(`https://imdb8.p.rapidapi.com/auto-complete?q=${searchInput}`, {
+    const parsedSearchInput = searchInput.replace(/ /g, '%20');
+    return fetch(`https://imdb8.p.rapidapi.com/auto-complete?q=${parsedSearchInput}`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "8c2a19fd2emsh89e69e05a30c5f4p16893ejsn234ed2a7ce9e",
+            "x-rapidapi-key": "0a82ef8d15msh7ab734a85c08d3cp15dd74jsnca5079df8baa",
             "x-rapidapi-host": "imdb8.p.rapidapi.com"
         }
     })
@@ -53,18 +54,17 @@ const search = async (searchInput) => {
 
             return filteredMovies;
         })
-        .catch(err => console.error(err.message))
+        .catch(err => console.error("search:", err.message))
 }
 
 const isAMovie = async (movieID) => {
     return fetch(`https://imdb8.p.rapidapi.com/title/get-details?tconst=${movieID}`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "8c2a19fd2emsh89e69e05a30c5f4p16893ejsn234ed2a7ce9e",
+            "x-rapidapi-key": "0a82ef8d15msh7ab734a85c08d3cp15dd74jsnca5079df8baa",
             "x-rapidapi-host": "imdb8.p.rapidapi.com"
         }
     })
-        .then(response => response.json())
         .then(details => {
             if (details.titleType === undefined) {
                 return [];
@@ -72,7 +72,7 @@ const isAMovie = async (movieID) => {
 
             return details.titleType.toUpperCase().includes("MOVIE");
         })
-        .catch(err => console.error(err.message))
+        .catch(err => console.error("isAMovie:", err.message))
 }
 
 export default SearchBar;

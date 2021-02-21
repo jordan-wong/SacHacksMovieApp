@@ -1,16 +1,15 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { ImageBackground, Text, StyleSheet } from 'react-native';
 
 const MovieListItem = ({ movie }) => {
     return (
-        <View style={styles.container}>
+        <ImageBackground key={movie.id} style={styles.container}>
             <Text
-                key={movie.id}
                 style={styles.text}
             >
                 {movie.l}
             </Text>
-        </View>
+        </ImageBackground>
     )
 }
 

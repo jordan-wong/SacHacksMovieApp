@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'black',
         width: '100%',
-        maxHeight: 150
+        maxHeight: 150,
+        minHeight: 150
     },
     text: {
         color: 'white',

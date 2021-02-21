@@ -6,7 +6,6 @@ import SearchBar from './components/SearchBar';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
-  const [movieItems, setMovieItems] = useState([]);
 
   useEffect(() => {
 
