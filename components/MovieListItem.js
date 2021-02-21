@@ -3,7 +3,7 @@ import { ImageBackground, Text, StyleSheet } from 'react-native';
 
 const MovieListItem = ({ movie }) => {
     return (
-        <ImageBackground key={movie.id} style={styles.container}>
+        <ImageBackground key={movie.id} source={{ uri: movie.i.imageUrl }} style={styles.container}>
             <Text
                 style={styles.text}
             >
@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 35,
         textAlign: 'center',
-        color: 'white'
+        color: 'white',
+        backgroundColor: 'black'
     }
 });
 
